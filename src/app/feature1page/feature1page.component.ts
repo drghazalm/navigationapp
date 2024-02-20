@@ -31,7 +31,7 @@ export class Feature1pageComponent {
   constructor(){
     this.name =  "";
     this.email = "";
-    this.password = ""; 
+    this.password = "";  
     this.list = JSON.parse(localStorage.getItem('list') || '[{}]');
   }
 
