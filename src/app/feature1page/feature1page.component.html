@@ -1,0 +1,39 @@
+<div class="content-wrapper">
+    <div class="content pure-g">
+        <h2 class="content-head is-center pure-u-1">Form{{name}}</h2>
+        <div class="pure-u-1">
+            <form class="pure-form pure-form-stacked">
+                <fieldset>
+                    <label for="aligned-name">Your Name</label>
+                    <input type="text" id="aligned-name" placeholder="Name" name="_name" [(ngModel)]="name" />
+
+                    <label for="email">Your Email</label>
+                    <input id="email" type="email" placeholder="Your Email" name="_email" [(ngModel)]="email">
+
+                    <label for="password">Your Password</label>
+                    <input id="password" type="password" placeholder="Your Password" name="_password"  [(ngModel)]="password">
+
+                    <button type="submit" class="pure-button" (click)="buttonPressed()">Sign Up</button>
+                </fieldset>
+            </form>
+        </div>
+        <table class="pure-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of list; index as i">
+                    <td>{{i}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.password}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
