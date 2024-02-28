@@ -1,23 +1,25 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { RestapidataService } from '../restapidata.service';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-restapi',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,FormsModule],
   templateUrl: './restapi.component.html',
   styleUrl: './restapi.component.css'
 })
 export class RestapiComponent {
   list:any 
-  constructor(private http: HttpClient){
-    this.list = null;
+  baseurl: string; 
+  apikey: string; 
+  constructor(private restapidataService:RestapidataService){
+    this.baseurl = "";
+    this.apikey = "";
+    this.restapidataService.getData().subscribe((data)=> this.list =  data);
   }
 
-  ngOnInit(): void {
-    this.http.get("https://my-json-server.typicode.com/JSGund/XHR-Fetch-Request-JavaScript/posts").subscribe(
-      (data)=>{
-        this.list =  data;
-      }); 
+  get(){
+    this.restapidataService.getDataWithKey(this.baseurl+this.apikey).subscribe((data)=> this.list =  data);
   }
 }
