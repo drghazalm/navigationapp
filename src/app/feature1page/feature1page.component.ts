@@ -1,18 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common'
-
-class account{
-  name: string;
-  email: string;
-  password: string 
-
-  constructor(name: string, email: string, password: string){
-    this.name = name;
-    this.email = email;
-    this.password = password;
-  }
-}
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-feature1page',
@@ -21,22 +10,25 @@ class account{
   templateUrl: './feature1page.component.html',
   styleUrl: './feature1page.component.css'
 })
-export class Feature1pageComponent {
+export class Feature1pageComponent implements OnInit{
   name: string;
   email: string;
   password:string; 
+  data: any[];
 
-  list: account[];
-
-  constructor(){
+  constructor(private dataService: DataService){
     this.name =  "";
     this.email = "";
-    this.password = "";  
-    this.list = JSON.parse(localStorage.getItem('list') || '[{}]');
+    this.password = ""; 
+    this.data = []; 
   }
-
-  buttonPressed(){
-    this.list.push(new account(this.name,this.email,this.password));
-    localStorage.setItem("list", JSON.stringify(this.list));
+  ngOnInit(): void {
+    this.data = this.dataService.getData();
+  }
+  buttonPressed(): void {
+    this.dataService.addData(this.name,this.email,this.password);
+  }
+  removeButton(id:number):void{
+    this.dataService.removeData(id);
   }
 }

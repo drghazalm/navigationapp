@@ -21,17 +21,21 @@
             <thead>
                 <tr>
                     <th>#</th>
+                    <th>ID</th>
                     <th>Make</th>
                     <th>Model</th>
                     <th>Year</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of list; index as i">
+                <tr *ngFor="let item of data; index as i">
                     <td>{{i}}</td>
+                    <td>{{item.id}}</td>
                     <td>{{item.name}}</td>
                     <td>{{item.email}}</td>
                     <td>{{item.password}}</td>
+                    <td><button class="pure-button" style="background-color: rgb(202, 60, 60);" (click)="removeButton(item.id)">x</button></td>
                 </tr>
             </tbody>
         </table>
