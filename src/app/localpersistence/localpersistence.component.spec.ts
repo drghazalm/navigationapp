@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Feature1pageComponent } from './feature1page.component';
+import { LocalpersistenceComponent } from './localpersistence.component';
 
-describe('Feature1pageComponent', () => {
-  let component: Feature1pageComponent;
-  let fixture: ComponentFixture<Feature1pageComponent>;
+describe('LocalpersistenceComponent', () => {
+  let component: LocalpersistenceComponent;
+  let fixture: ComponentFixture<LocalpersistenceComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Feature1pageComponent]
+      imports: [LocalpersistenceComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(Feature1pageComponent);
+    fixture = TestBed.createComponent(LocalpersistenceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

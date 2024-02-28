@@ -15,7 +15,7 @@ class account{
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class LocaldataService {
   list: account[];
   private nextId: number;
   constructor() { 
