@@ -6,16 +6,25 @@
                 <fieldset>
                     <label for="aligned-name">Base URL</label>
                     <input type="text" id="aligned-name" placeholder="Base URL" name="_baseurl" [(ngModel)]="baseurl" />
-                    <label for="email">API Key</label>
+                    <label for="email">API Key-</label>
                     <input id="email" type="email" placeholder="API Key" name="_apikey" [(ngModel)]="apikey">
                     <button type="submit" class="pure-button" (click)="get()">Get It!</button>
                 </fieldset>
             </form>
         </div>
     </div>
-    <div>
-        <p> {{list|json}}</p> 
-    </div>
+    <table class="pure-table pure-table-bordered">
+        <thead>
+            <tr>
+               <td *ngFor="let key of getObjectKeys(list[0])"> {{key}} </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of list" >
+                <td *ngFor="let key of getObjectKeys(item)">{{item[key]}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 
