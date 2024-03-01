@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RestapidataService } from '../restapidata.service';
+import { RestapidataService } from '../services/restapidata.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
