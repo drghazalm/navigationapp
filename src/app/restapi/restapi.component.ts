@@ -15,6 +15,7 @@ export class RestapiComponent {
   baseurl: string; 
   apikey: string; 
   constructor(private restapidataService:RestapidataService){
+    this.list = [];
     this.baseurl = "";
     this.apikey = "";
     this.restapidataService.getData().subscribe((data)=> this.list =  data);
@@ -27,7 +28,7 @@ export class RestapiComponent {
   }
   getObjectKeys(obj: any): string[] {
     if (!obj) {
-      return []; // Return an empty array if obj is undefined or null
+      return []; 
     }
     return Object.keys(obj);
   }

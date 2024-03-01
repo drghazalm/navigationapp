@@ -1,0 +1,29 @@
+<div class="content-wrapper">
+    <div class="content">
+        <h2 class="content-head is-center pure-u-1">Calculation Form</h2>
+        <div class="pure-u-1">
+            <form class="pure-form pure-form-stacked">
+                <fieldset>
+                    <div class="pure-u-1-2">
+                        <label for="input1">Input 1 (Auto-calculate)</label>
+                        <input type="number" id="input1" min="0" max="100" placeholder="" name="_input1" [(ngModel)]="input1" (ngModelChange)="calc_auto()"/>
+
+                        <label for="input2">Input 2 (Auto-calculate)</label>
+                        <input id="input2" type="number"  min="0" max="100" placeholder="" name="_input2" [(ngModel)]="input2" (ngModelChange)="calc_auto()">
+                    </div>
+                    <div class="pure-u-1-2 is-center"> <h2 class="content-head  pure-u-1">Output A: {{outputA}}</h2> </div>
+                    <div class="pure-u-1-2">
+                        <label for="input3">Input 3 (Event Calculate)</label>
+                        <input type="number" id="input3" min="0" max="100" placeholder="" name="_input3" [(ngModel)]="input3" />
+
+                        <label for="input4">Input 4 (Event Calculate)</label>
+                        <input id="input4" type="number" min="0" max="100" placeholder="" name="_input4" [(ngModel)]="input4">
+
+                        <button type="submit" class="pure-button" (click)="calc_event()">Calculate</button>
+                    </div>
+                    <div class="pure-u-1-2 is-center"> <h2 class="content-head pure-u-1 {{getClassFromValue()}}">Output B: {{outputB}}</h2> </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
