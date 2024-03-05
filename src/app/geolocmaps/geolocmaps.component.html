@@ -1,5 +1,33 @@
 <div class="content-wrapper">
     <div class="content">
-        Works
+        <div *ngIf="locationAvailable">
+            <h2 class="content-head is-center pure-u-1">Longitude: {{longitude}}</h2>
+            <h2 class="content-head is-center pure-u-1">Latitude: {{latitude}}</h2>
+        </div>
+        <div *ngIf="!locationAvailable">
+            <h2 class="content-head is-center pure-u-1">{{waitMessage}}</h2>
+        </div>
+    </div>
+    <div *ngIf="locationAvailable" class="content is-center pure-u-1">
+        <google-map
+            height="500px"
+            width="100%"
+            [zoom]="zoom"
+            [center]="center"
+            [options]="options"
+            (mapClick)="click($event)"
+            >
+            <map-marker
+            #markerElem
+            *ngFor="let marker of markers"
+            [position]="marker.position"
+            [label]="marker.label"
+            [title]="marker.title"
+            [options]="marker.options" 
+            >
+          </map-marker>
+        </google-map>
+        <button (click)="addMarker()">Add marker</button>
     </div>
 </div>
+

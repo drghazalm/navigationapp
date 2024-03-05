@@ -13,5 +13,6 @@ export const routes: Routes = [
     {path:'restapi', component:RestapiComponent},
     {path:'remotepersistence', component:RemotepersistenceComponent},
     {path:'calculation', component:CalculationComponent},
-    {path:'geolocmaps', component:GeolocmapsComponent}
+    {path:'geolocmaps', component:GeolocmapsComponent},
+    
 ];
